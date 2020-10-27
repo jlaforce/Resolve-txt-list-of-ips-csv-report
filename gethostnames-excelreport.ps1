@@ -1,0 +1,2 @@
+﻿##Here just create a txt file in the same folder with a list of IP Addresses, and this will grab the FQDN\Hostnames. 
+Get-Content .\ipadds.txt | ForEach-Object {([system.net.dns]::GetHostAddresses($_)).hostname | Select * | Export-csv .\hostnames.csv -NoTypeInformation -Append} 
